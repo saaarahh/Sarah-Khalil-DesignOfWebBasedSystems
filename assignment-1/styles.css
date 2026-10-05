@@ -1,0 +1,373 @@
+/* ==========================================================
+   Sarah Khalil — CV Webpage Styles
+   Theme: fun, soft & pink
+   ========================================================== */
+
+:root {
+  --pink-50:  #fff5f9;
+  --pink-100: #ffe4ef;
+  --pink-200: #ffc9de;
+  --pink-300: #ff9ec4;
+  --pink-400: #ff6fa8;
+  --pink-500: #f0468c;
+  --pink-700: #b8235f;
+  --plum:     #5a1d3d;
+  --text:     #4a2a3a;
+  --muted:    #8a5a72;
+  --white:    #ffffff;
+
+  --radius: 24px;
+  --shadow: 0 10px 30px rgba(240, 70, 140, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Quicksand", "Segoe UI", sans-serif;
+  color: var(--text);
+  line-height: 1.65;
+  background-color: var(--pink-50);
+  /* playful polka dots */
+  background-image:
+    radial-gradient(var(--pink-200) 2px, transparent 2px),
+    radial-gradient(var(--pink-100) 2px, transparent 2px);
+  background-size: 36px 36px;
+  background-position: 0 0, 18px 18px;
+}
+
+/* ---------- Header / Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--pink-300) 0%, var(--pink-400) 50%, var(--pink-500) 100%);
+  color: var(--white);
+  padding: 64px 20px 90px;
+  border-bottom-left-radius: 50% 60px;
+  border-bottom-right-radius: 50% 60px;
+  box-shadow: var(--shadow);
+}
+
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.photo-frame {
+  flex-shrink: 0;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  padding: 8px;
+  background: repeating-conic-gradient(var(--white) 0 15deg, var(--pink-200) 15deg 30deg);
+  box-shadow: 0 12px 30px rgba(90, 29, 61, 0.3);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  border: 6px solid var(--white);
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.hello {
+  font-size: 1.3rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
+.hero h1 {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 1.2;
+  text-shadow: 3px 3px 0 var(--pink-700);
+  margin: 4px 0 12px;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.tagline {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 6px 18px;
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px dashed var(--white);
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 960px;
+  margin: -40px auto 0;
+  padding: 0 20px 40px;
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+  border: 3px solid var(--pink-100);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.two-col .card {
+  margin-bottom: 28px;
+}
+
+/* ---------- Headings ---------- */
+h2 {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-size: 1.9rem;
+  color: var(--pink-500);
+  margin-bottom: 18px;
+  padding-bottom: 8px;
+  border-bottom: 3px dotted var(--pink-200);
+}
+
+.emoji {
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+  font-size: 1.5rem;
+  margin-right: 6px;
+}
+
+h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--plum);
+}
+
+.subhead {
+  margin: 16px 0 10px;
+  font-weight: 700;
+  color: var(--pink-700);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+}
+
+/* ---------- Entries (education & experience) ---------- */
+.entry {
+  position: relative;
+  padding-left: 26px;
+  margin-bottom: 26px;
+  border-left: 3px solid var(--pink-200);
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 6px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--pink-400);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 3px var(--pink-200);
+}
+
+.entry-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.date {
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--pink-400);
+  padding: 3px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.place {
+  color: var(--muted);
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.entry ul {
+  list-style: none;
+  margin-top: 6px;
+}
+
+.entry ul:not(.chips) li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 4px;
+}
+
+.entry ul:not(.chips) li::before {
+  content: "\2665"; /* heart */
+  position: absolute;
+  left: 0;
+  color: var(--pink-400);
+  font-size: 0.9rem;
+}
+
+/* ---------- Chips (skills, coursework) ---------- */
+.chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chips li {
+  background: var(--pink-100);
+  color: var(--pink-700);
+  border: 2px solid var(--pink-200);
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ---------- Certifications ---------- */
+.ribbons {
+  list-style: none;
+}
+
+.ribbons li {
+  background: linear-gradient(90deg, var(--pink-100), var(--pink-50));
+  border-left: 6px solid var(--pink-400);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--plum);
+}
+
+.ribbons em {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ---------- Activities ---------- */
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.activity {
+  background: var(--pink-50);
+  border: 2px dashed var(--pink-300);
+  border-radius: 18px;
+  padding: 18px 20px;
+}
+
+.activity .place {
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+/* ---------- Contact ---------- */
+.contact {
+  background: linear-gradient(135deg, var(--pink-100), var(--white));
+  text-align: center;
+}
+
+.contact h2 {
+  border-bottom: none;
+}
+
+address {
+  font-style: normal;
+  font-size: 1.05rem;
+}
+
+address p {
+  margin-bottom: 8px;
+}
+
+address a {
+  color: var(--pink-500);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid var(--pink-200);
+  word-break: break-word;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 26px 20px;
+  background: var(--pink-400);
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 760px) {
+  .hero {
+    padding: 48px 16px 80px;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 24px;
+  }
+
+  .photo-frame {
+    width: 190px;
+    height: 190px;
+  }
+
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .container {
+    padding: 0 16px 32px;
+  }
+
+  .card {
+    padding: 24px 20px;
+  }
+
+  .two-col,
+  .activity-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .activity-grid {
+    gap: 16px;
+  }
+
+  .entry-head {
+    flex-direction: column;
+    gap: 6px;
+  }
+}

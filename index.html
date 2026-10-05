@@ -8,14 +8,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <!-- Loaded in <head> so the saved theme is applied before the page is drawn (no flash).
+       Everything else in script.js waits for DOMContentLoaded. -->
+  <script src="script.js"></script>
 </head>
 <body>
+
+  <!-- ===== Option 3: Dark / Light mode toggle ===== -->
+  <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">
+    <span class="theme-icon" aria-hidden="true">🌙</span>
+    <span class="theme-label">Dark mode</span>
+  </button>
 
   <!-- ===== Header: name, title, photo ===== -->
   <header class="hero">
     <div class="hero-inner">
       <figure class="photo-frame">
-        <img src="profile.jpg" alt="Sarah Khalil standing in front of the AUC letters on campus">
+        <img src="images/profile.jpg" alt="Sarah Khalil standing in front of the AUC letters on campus">
       </figure>
       <div class="hero-text">
         <p class="hello">Hi, I'm</p>
@@ -83,131 +92,152 @@
       </article>
     </section>
 
-    <!-- ===== Experience ===== -->
-    <section class="card" id="experience">
-      <h2><span class="emoji" aria-hidden="true">💼</span> Experience</h2>
+    <!-- ===== Experience (Option 2: collapsible) ===== -->
+    <section class="card collapsible" id="experience">
+      <div class="section-head">
+        <h2><span class="emoji" aria-hidden="true">💼</span> Experience</h2>
+        <button type="button" class="toggle-btn" aria-expanded="true" aria-controls="experience-body" data-label="Experience">Hide Experience</button>
+      </div>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Undergraduate Classroom Support &mdash; Department of Management</h3>
-          <span class="date">Feb. 2026 &ndash; Present</span>
-        </div>
-        <p class="place">American University in Cairo</p>
-        <ul>
-          <li>Support Management professors with academic and administrative tasks.</li>
-          <li>Prepare and organize teaching materials and course content.</li>
-          <li>Assist in grading assignments, quizzes, and student participation.</li>
-          <li>Facilitate lectures and tutorials, including setting up and guiding group activities.</li>
-          <li>Communicate course updates and answer student questions about coursework and expectations.</li>
-          <li>Give professors feedback on student progress and common challenges.</li>
-        </ul>
-      </article>
+      <div class="section-body" id="experience-body">
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Undergraduate Classroom Support &mdash; Department of Management</h3>
+            <span class="date">Feb. 2026 &ndash; Present</span>
+          </div>
+          <p class="place">American University in Cairo</p>
+          <ul>
+            <li>Support Management professors with academic and administrative tasks.</li>
+            <li>Prepare and organize teaching materials and course content.</li>
+            <li>Assist in grading assignments, quizzes, and student participation.</li>
+            <li>Facilitate lectures and tutorials, including setting up and guiding group activities.</li>
+            <li>Communicate course updates and answer student questions about coursework and expectations.</li>
+            <li>Give professors feedback on student progress and common challenges.</li>
+          </ul>
+        </article>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Business Analysis Intern</h3>
-          <span class="date">Aug. 2025 &ndash; Nov. 2025</span>
-        </div>
-        <p class="place">PwC ETIC</p>
-        <ul>
-          <li>Completed training in requirements gathering, process modeling, and data interpretation.</li>
-          <li>Assisted senior analysts with documentation and reports for internal projects.</li>
-          <li>Organized project materials, reviewed data, and maintained records.</li>
-          <li>Gained exposure to business process improvement and stakeholder communication.</li>
-        </ul>
-      </article>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Business Analysis Intern</h3>
+            <span class="date">Aug. 2025 &ndash; Nov. 2025</span>
+          </div>
+          <p class="place">PwC ETIC</p>
+          <ul>
+            <li>Completed training in requirements gathering, process modeling, and data interpretation.</li>
+            <li>Assisted senior analysts with documentation and reports for internal projects.</li>
+            <li>Organized project materials, reviewed data, and maintained records.</li>
+            <li>Gained exposure to business process improvement and stakeholder communication.</li>
+          </ul>
+        </article>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Team Lead &mdash; Entrepreneurship Exchange Program</h3>
-          <span class="date">Sept. 2025 &ndash; Nov. 2025</span>
-        </div>
-        <p class="place">AUC in collaboration with the William Davidson Institute</p>
-        <ul>
-          <li>Led a multidisciplinary team in developing and pitching an innovative business idea.</li>
-          <li>Managed project planning, task delegation, and team coordination toward milestones.</li>
-          <li>Conducted market research and business model development to validate the concept.</li>
-          <li>Delivered pitches to mentors and evaluators and refined the idea using their feedback.</li>
-        </ul>
-      </article>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Team Lead &mdash; Entrepreneurship Exchange Program</h3>
+            <span class="date">Sept. 2025 &ndash; Nov. 2025</span>
+          </div>
+          <p class="place">AUC in collaboration with the William Davidson Institute</p>
+          <ul>
+            <li>Led a multidisciplinary team in developing and pitching an innovative business idea.</li>
+            <li>Managed project planning, task delegation, and team coordination toward milestones.</li>
+            <li>Conducted market research and business model development to validate the concept.</li>
+            <li>Delivered pitches to mentors and evaluators and refined the idea using their feedback.</li>
+          </ul>
+        </article>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Business Student Ambassador</h3>
-          <span class="date">Sept. 2024 &ndash; Dec. 2024</span>
-        </div>
-        <p class="place">Office of Student Success &amp; Development, AUC School of Business</p>
-        <ul>
-          <li>Worked across operations, human resources, academic, and marketing departments.</li>
-          <li>Supported OSSD events and assisted with student registration.</li>
-          <li>Helped establish performance appraisal systems.</li>
-          <li>Managed social media platforms to boost engagement and outreach.</li>
-        </ul>
-      </article>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Business Student Ambassador</h3>
+            <span class="date">Sept. 2024 &ndash; Dec. 2024</span>
+          </div>
+          <p class="place">Office of Student Success &amp; Development, AUC School of Business</p>
+          <ul>
+            <li>Worked across operations, human resources, academic, and marketing departments.</li>
+            <li>Supported OSSD events and assisted with student registration.</li>
+            <li>Helped establish performance appraisal systems.</li>
+            <li>Managed social media platforms to boost engagement and outreach.</li>
+          </ul>
+        </article>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Undergraduate Help &mdash; Financial Accounting</h3>
-          <span class="date">Sept. 2023 &ndash; Dec. 2023</span>
-        </div>
-        <p class="place">American University in Cairo</p>
-        <ul>
-          <li>Supported lesson delivery and in-class activities.</li>
-          <li>Encouraged student engagement and helped manage classroom organization and materials.</li>
-        </ul>
-      </article>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Undergraduate Help &mdash; Financial Accounting</h3>
+            <span class="date">Sept. 2023 &ndash; Dec. 2023</span>
+          </div>
+          <p class="place">American University in Cairo</p>
+          <ul>
+            <li>Supported lesson delivery and in-class activities.</li>
+            <li>Encouraged student engagement and helped manage classroom organization and materials.</li>
+          </ul>
+        </article>
 
-      <article class="entry">
-        <div class="entry-head">
-          <h3>Summer Intern</h3>
-          <span class="date">July 2023</span>
-        </div>
-        <p class="place">EBANK</p>
-        <ul>
-          <li>Learned banking fundamentals: financial products, customer service, and regulatory compliance.</li>
-          <li>Explored HR practices including recruitment, employee relations, and organizational management.</li>
-        </ul>
-      </article>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Summer Intern</h3>
+            <span class="date">July 2023</span>
+          </div>
+          <p class="place">EBANK</p>
+          <ul>
+            <li>Learned banking fundamentals: financial products, customer service, and regulatory compliance.</li>
+            <li>Explored HR practices including recruitment, employee relations, and organizational management.</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
-    <!-- ===== Skills + Certifications side by side ===== -->
+    <!-- ===== Skills + Certifications side by side (Option 2: collapsible) ===== -->
     <div class="two-col">
-      <section class="card" id="skills">
-        <h2><span class="emoji" aria-hidden="true">✨</span> Skills</h2>
-        <ul class="chips">
-          <li>Emotional Intelligence</li>
-          <li>Tutoring</li>
-          <li>Leadership</li>
-          <li>Microsoft Excel</li>
-          <li>Microsoft Word</li>
-          <li>Microsoft PowerPoint</li>
-          <li>Power BI</li>
-          <li>IBM SPSS Statistics</li>
-          <li>R</li>
-          <li>C++</li>
-        </ul>
-        <p class="subhead">Languages</p>
-        <ul class="chips">
-          <li>Arabic &mdash; native</li>
-          <li>English &mdash; fluent</li>
-        </ul>
+      <section class="card collapsible" id="skills">
+        <div class="section-head">
+          <h2><span class="emoji" aria-hidden="true">✨</span> Skills</h2>
+          <button type="button" class="toggle-btn" aria-expanded="true" aria-controls="skills-body" data-label="Skills">Hide Skills</button>
+        </div>
+
+        <div class="section-body" id="skills-body">
+          <ul class="chips">
+            <li>Emotional Intelligence</li>
+            <li>Tutoring</li>
+            <li>Leadership</li>
+            <li>Microsoft Excel</li>
+            <li>Microsoft Word</li>
+            <li>Microsoft PowerPoint</li>
+            <li>Power BI</li>
+            <li>IBM SPSS Statistics</li>
+            <li>R</li>
+            <li>C++</li>
+          </ul>
+          <p class="subhead">Languages</p>
+          <ul class="chips">
+            <li>Arabic &mdash; native</li>
+            <li>English &mdash; fluent</li>
+          </ul>
+        </div>
       </section>
 
-      <section class="card" id="certifications">
-        <h2><span class="emoji" aria-hidden="true">🏆</span> Certifications</h2>
-        <ul class="ribbons">
-          <li>McKinsey.org Forward Program</li>
-          <li>C++ Essential Training</li>
-          <li>Certificate of Participation &mdash; Pitchathon</li>
-          <li>SQL Essential Training <em>(in progress)</em></li>
-        </ul>
+      <section class="card collapsible" id="certifications">
+        <div class="section-head">
+          <h2><span class="emoji" aria-hidden="true">🏆</span> Certifications</h2>
+          <button type="button" class="toggle-btn" aria-expanded="true" aria-controls="certifications-body" data-label="Certifications">Hide Certifications</button>
+        </div>
+
+        <div class="section-body" id="certifications-body">
+          <ul class="ribbons">
+            <li>McKinsey.org Forward Program</li>
+            <li>C++ Essential Training</li>
+            <li>Certificate of Participation &mdash; Pitchathon</li>
+            <li>SQL Essential Training <em>(in progress)</em></li>
+          </ul>
+        </div>
       </section>
     </div>
 
-    <!-- ===== Activities ===== -->
-    <section class="card" id="activities">
-      <h2><span class="emoji" aria-hidden="true">💖</span> Extracurricular Activities</h2>
-      <div class="activity-grid">
+    <!-- ===== Activities (Option 2: collapsible) ===== -->
+    <section class="card collapsible" id="activities">
+      <div class="section-head">
+        <h2><span class="emoji" aria-hidden="true">💖</span> Extracurricular Activities</h2>
+        <button type="button" class="toggle-btn" aria-expanded="true" aria-controls="activities-body" data-label="Activities">Hide Activities</button>
+      </div>
+
+      <div class="section-body activity-grid" id="activities-body">
         <article class="activity">
           <h3>Heya Speaks Committee</h3>
           <p class="place">Heya Club &middot; Fall 2024</p>
@@ -231,7 +261,7 @@
       </div>
     </section>
 
-    <!-- ===== Contact ===== -->
+    <!-- ===== Contact (Option 1: form with validation) ===== -->
     <section class="card contact" id="contact">
       <h2><span class="emoji" aria-hidden="true">💌</span> Contact Me</h2>
       <address>
@@ -239,12 +269,38 @@
         <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sarah-khalil-885637266">linkedin.com/in/sarah-khalil-885637266</a></p>
         <p><strong>Location:</strong> Cairo, Egypt</p>
       </address>
+
+      <!-- novalidate turns off the browser's built-in popups so script.js can show its own messages -->
+      <form id="contact-form" class="contact-form" novalidate>
+        <p class="form-intro">Or leave me a message here:</p>
+
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-error">
+          <p class="error-msg" id="name-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-error">
+          <p class="error-msg" id="email-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" aria-describedby="message-error"></textarea>
+          <p class="error-msg" id="message-error" aria-live="polite"></p>
+        </div>
+
+        <button type="submit" class="submit-btn">Send message 💕</button>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+      </form>
     </section>
 
   </main>
 
   <footer>
-    <p>&copy; 2026 Sarah Khalil &middot; Made with HTML, CSS &amp; lots of pink 💕</p>
+    <p>&copy; 2026 Sarah Khalil &middot; Made with HTML, CSS, JavaScript &amp; lots of pink 💕</p>
   </footer>
 
 </body>
